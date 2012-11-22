@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Emeraldgreencorp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<ul class="nav pull-left">
+					<li><%= image_tag("egclogo.jpg", size: "166x300") %></li>
+				</ul>
+				<ul class="nav nav-pills pull-right">
+					<li><%= link_to "Home", home_path %></li>
+					<li><%= link_to "Officers", officers_path %></li>
+					<li><%= link_to "About us", about_path %></li>
+					<li><%= link_to "Contact us", contacts_path %></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<br /><br /><br />
+	<div class="container">
+		<%= yield %>
+	</div>
+</body>
+</html>

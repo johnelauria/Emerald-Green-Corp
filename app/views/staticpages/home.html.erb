@@ -1,0 +1,61 @@
+<div class="row">
+<div class="span8">
+<div id="myCarousel" class="carousel slide">
+	<div class="carousel-inner">
+		<div class="active item">
+			<%= image_tag("egc1.jpg") %>
+			<div class="carousel-caption">
+				<h3>The frontal view of Emerald Green Building</h3>
+			</div>
+		</div>
+		<div class="item">
+			<%= image_tag("egc2.jpg") %>
+			<div class="carousel-caption">
+				<h3>Philtex Office located at 2nd floor</h3>
+			</div>
+		</div>
+		<div class="item">
+			<%= image_tag("egc3.jpg") %>
+			<div class="carousel-caption">
+				<h3>Hallway</h3>
+			</div>
+		</div>
+		<div class="item">
+			<%= image_tag("egc4.jpg") %>
+			<div class="carousel-caption">
+				<h3>Building's Terrace at 3rd floor</h3>
+			</div>
+		</div>
+	</div>
+	<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+	<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div> 
+</div>
+<div class="span4">
+		<ul class="nav nav-pills nav-stacked">
+		<li class="active"><a href="#maintab" data-toggle="tab">Home</a></li>
+		<li><a href="#">Login</a></li>
+		<li><a href="#spaceforlease" data-toggle="tab">Spaces for lease</a></li>
+		<li><a href="#officestab" data-toggle="tab">Offices</a></li>
+	</ul>
+</div>
+</div>
+
+<div class="row">
+	<div class="container">
+		<div class="span8">
+			<div class="tab-content">
+				<div class="tab-pane active" id="maintab">
+					<%= render 'staticpages/mainpage' %>
+				</div>
+				<div class="tab-pane" id="officestab">
+					<%= render 'staticpages/offices' %>
+				</div>
+				<div class="tab-pane" id="spaceforlease">
+					<%= render 'staticpages/spaceforlease' %>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
