@@ -1,11 +1,19 @@
 Emeraldgreencorp::Application.routes.draw do
+  resources :users
+
+  resources :sessions, only: [:new, :create, :destroy]
+
   match "home", to: "staticpages#home"
 
   get "about", to: "staticpages#aboutus"
 
-  get "officers", to: "staticpages#officers"
+  get "offices", to: "staticpages#offices"
 
   get "contacts", to: "staticpages#contactus"
+
+  match "/signin", to: "sessions#new"
+
+  match "/signout", to: "sessions#destroy"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

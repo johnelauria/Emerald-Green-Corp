@@ -3,27 +3,33 @@
 <div id="myCarousel" class="carousel slide">
 	<div class="carousel-inner">
 		<div class="active item">
+			<%= image_tag("Photo0109.jpg") %>
+			<div class="carousel-caption">
+				<p>The frontal view of Emerald Green Building</p>
+			</div>
+		</div>
+		<div class="item">
 			<%= image_tag("egc1.jpg") %>
 			<div class="carousel-caption">
-				<h3>The frontal view of Emerald Green Building</h3>
+				<p>The frontal view of Emerald Green Building</p>
 			</div>
 		</div>
 		<div class="item">
 			<%= image_tag("egc2.jpg") %>
 			<div class="carousel-caption">
-				<h3>Philtex Office located at 2nd floor</h3>
+				<p>Philtex Office located at 2nd floor</p>
 			</div>
 		</div>
 		<div class="item">
 			<%= image_tag("egc3.jpg") %>
 			<div class="carousel-caption">
-				<h3>Hallway</h3>
+				<p>Hallway</p>
 			</div>
 		</div>
 		<div class="item">
 			<%= image_tag("egc4.jpg") %>
 			<div class="carousel-caption">
-				<h3>Building's Terrace at 3rd floor</h3>
+				<p>Building's Terrace at 3rd floor</p>
 			</div>
 		</div>
 	</div>
@@ -31,31 +37,40 @@
 	<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div> 
 </div>
-<div class="span4">
-		<ul class="nav nav-pills nav-stacked">
-		<li class="active"><a href="#maintab" data-toggle="tab">Home</a></li>
-		<li><a href="#">Login</a></li>
-		<li><a href="#spaceforlease" data-toggle="tab">Spaces for lease</a></li>
-		<li><a href="#officestab" data-toggle="tab">Offices</a></li>
-	</ul>
-</div>
+
+	<div class="span4">
+		<a href="#"><%= image_tag("careers.jpg") %></a>
+		<article>
+			Apply now and be part of our family! With 7 Job vacancies available in 3 different offices, choose one among the available job vacancies left that suits your skills and abilities
+		</article>
+		<a href="#"><%= image_tag("gallery.jpg") %></a>
+	</div>
 </div>
 
 <div class="row">
-	<div class="container">
 		<div class="span8">
 			<div class="tab-content">
 				<div class="tab-pane active" id="maintab">
 					<%= render 'staticpages/mainpage' %>
 				</div>
-				<div class="tab-pane" id="officestab">
-					<%= render 'staticpages/offices' %>
+				<div class="tab-pane" id="aboutustab">
+					<%= render 'staticpages/aboutus' %>
+				</div>
+				<div class="tab-pane" id="officerstab">
+					<%= render 'staticpages/officers' %>
 				</div>
 				<div class="tab-pane" id="spaceforlease">
 					<%= render 'staticpages/spaceforlease' %>
 				</div>
 			</div>
-			
 		</div>
-	</div>
+		
+		<div class="span4">
+			<ul class="nav nav-pills nav-stacked">
+			<li class="active"><a href="#maintab" data-toggle="tab">Home</a></li>
+			<li><a href="#aboutustab" data-toggle="tab">About us</a></li>
+			<li><a href="#spaceforlease" data-toggle="tab">Spaces for lease</a></li>
+			<li><a href="#officerstab" data-toggle="tab">Officers</a></li>
+			</ul>
+		</div>
 </div>

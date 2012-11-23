@@ -5,6 +5,14 @@ body {
 	text-align: justify;
 }
 
+h1 {
+	color: gray;
+}
+
+article {
+	font-size: small;
+}
+
 .navbar-inner {
   background-color: #7f7; 
   background-image: none;
@@ -25,6 +33,9 @@ body {
     background-color: green;
 }
 
-h1 {
-	color: gray;
+
+
+.table tr:hover {
+	color: green;
+	background-color: #bbb;
 }
