@@ -6,6 +6,9 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"</script>
+  <![endif]-->
 
 </head>
 <body>
@@ -38,13 +41,20 @@
 		<div class="modal-body">
 			<%= render 'sessions/signin' %>
 		</div>
-	</div>
 	<div class="modal-footer">
-		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		<button class="btn btn-mini btn-inverse" data-dismiss="modal" aria-hidden="true">Close</button>
 	</div>
+	</div>
+	<br /><br /><br />
 	<div class="container">
 		<% flash.each do |key, value| %>
+		<div>
+			<button type="button" class="close" data-dismiss="alert">x</button>
 			<%= content_tag(:div, value, class: "alert alert-#{key}") %>
+		</div>
+		<% end %>
+		<% if signed_in? %>
+			<small>Account of: <%= current_user.name %></small>
 		<% end %>
 		<%= yield %>
 	</div>

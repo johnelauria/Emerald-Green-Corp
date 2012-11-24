@@ -1,0 +1,30 @@
+<%= form_for(@smstext) do |f| %>
+  <% if @smstext.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@smstext.errors.count, "error") %> prohibited this smstext from being saved:</h2>
+
+      <ul>
+      <% @smstext.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <p>For testing purposes, message will be sent to the mobile number provided in the recipient form. SMS messaging has limited balance</p>
+  </div>
+
+  <div class="field">
+    <%= f.label :recipient %><br />
+    <%= f.number_field :recipient, placeholder: "09191234567" %>
+  </div>
+  <div class="field">
+    <%= f.label :smsmessage %><br />
+    <%= f.text_area :smsmessage, rows: 5, placeholder: "Maximum of 160 characters" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Send", class: "btn btn-success" %>
+  </div>
+<% end %>

@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+
+  before_filter :signed_in_user, only: [ :index, :edit, :destroy ]
+  before_filter :correct_user, only: [ :edit, :update ]
+  before_filter :admin_user, only: [ :edit, :update, :new, :create, :destroy ]
   def index
     @users = User.all
 
@@ -44,8 +48,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        sign_in @user
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        flash[:success] = "A new user account has been successfully created"
+        format.html { redirect_to @user }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -81,4 +85,21 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def correct_user
+      @user = User.find(params[:id])
+      if !current_user?(@user)
+        flash[:warning] = "You are not authorized to access that page"
+        redirect_to root_path
+      end
+    end
+
+    def admin_user
+      if !current_user.admin?
+        flash[:warning] = "Your account is not authorized to access that page. Only administrators can access that page. Please contact them if you want access"
+        redirect_to root_path
+      end
+    end
 end

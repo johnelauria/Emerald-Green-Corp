@@ -39,3 +39,8 @@ article {
 	color: green;
 	background-color: #bbb;
 }
+
+.field_with_errors {
+	@extend .control-group;
+	@extend .error;
+}

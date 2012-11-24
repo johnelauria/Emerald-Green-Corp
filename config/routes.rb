@@ -1,4 +1,10 @@
 Emeraldgreencorp::Application.routes.draw do
+  resources :smstexts
+
+
+  resources :emailus
+
+
   resources :users
 
   resources :sessions, only: [:new, :create, :destroy]

@@ -1,0 +1,25 @@
+<h1>Listing emailus</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Message</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @emailus.each do |emailu| %>
+  <tr>
+    <td><%= emailu.email %></td>
+    <td><%= emailu.message %></td>
+    <td><%= link_to 'Show', emailu %></td>
+    <td><%= link_to 'Edit', edit_emailu_path(emailu) %></td>
+    <td><%= link_to 'Destroy', emailu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Emailu', new_emailu_path %>

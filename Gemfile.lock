@@ -32,6 +32,7 @@ GEM
     bcrypt-ruby (3.0.1-x86-mingw32)
     bootstrap-sass (2.1.0.1)
     builder (3.0.4)
+    clickatell (0.8.2)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -109,6 +110,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby
   bootstrap-sass
+  clickatell
   coffee-rails (~> 3.2.1)
   jquery-rails
   pg

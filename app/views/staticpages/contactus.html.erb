@@ -6,21 +6,28 @@
 			</a>
 		</div>
 		<div id="Contactnumbers" class="accordion-body collapse in">
-			<div class="accordion-inner">
-				<table class="table">
-					<tr>
-						<td><strong>Telephone numbers: </strong></td>
-						<td>9259902</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>8360086</td>
-					</tr>
-					<tr>
-						<td><strong>Email address: </strong></td>
-						<td>infoegc@yahoo.com</td>
-					</tr>
-				</table>
+			<div class="row">
+				<div class="span3">
+					<%= image_tag("directory.jpg") %>
+				</div>
+				<div class="span6">
+					<div class="accordion-inner">
+						<table class="table">
+						<tr>
+							<td><strong>Telephone numbers: </strong></td>
+							<td>9259902</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>8360086</td>
+						</tr>
+						<tr>
+							<td><strong>Email address: </strong></td>
+							<td>infoegc@yahoo.com</td>
+						</tr>
+					</table>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -32,8 +39,15 @@
 			</a>
 		</div>
 		<div id="email" class="accordion-body collapse">
-			<div class="accordion-inner">
-				Email form here...
+			<div class="row">
+				<div class="span3">
+					<%= image_tag("email.jpg") %>
+				</div>
+				<div class="span6">
+					<div class="accordion-inner">
+						<%= render 'emailus/form' %>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -45,7 +59,14 @@
 		</div>
 		<div id="smstext" class="accordion-body collapse">
 			<div class="accordion-inner">
-				SMS form here...
+				<div class="row">
+					<div class="span3">
+						<%= image_tag("sms.jpg") %>
+					</div>
+					<div class="span6">
+						<%= render 'smstexts/form' %>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -9,5 +9,7 @@ class StaticpagesController < ApplicationController
   end
 
   def contactus
+  	@emailu = Emailu.new(params[:emailu])
+  	@smstext = Smstext.new(params[:smstext])
   end
 end
