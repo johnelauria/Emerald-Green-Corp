@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
-  attr_accessible :admin, :email, :name, :password, :password_confirmation, :remember_token
+  attr_accessible :admin, :email, :name, :password, :password_confirmation, :remember_token, :description, :logo
   has_secure_password
+
+  has_many :images
 
   before_save { self.email.downcase! }
   before_save { create_remember_token }
@@ -10,6 +12,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+  mount_uploader :logo, AvatarUploader
 
   private
 

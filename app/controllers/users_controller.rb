@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   before_filter :signed_in_user, only: [ :index, :edit, :destroy ]
   before_filter :correct_user, only: [ :edit, :update ]
-  before_filter :admin_user, only: [ :edit, :update, :new, :create, :destroy ]
+  before_filter :admin_user, only: [ :new, :create, :destroy ]
   def index
     @users = User.all
 
@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @image = Image.new(params[:image])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -92,13 +93,6 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       if !current_user?(@user)
         flash[:warning] = "You are not authorized to access that page"
-        redirect_to root_path
-      end
-    end
-
-    def admin_user
-      if !current_user.admin?
-        flash[:warning] = "Your account is not authorized to access that page. Only administrators can access that page. Please contact them if you want access"
         redirect_to root_path
       end
     end

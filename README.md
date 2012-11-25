@@ -1,0 +1,1 @@
+This is an online website specifically developed for Emerald Green Corporation. The website is still at its development stage. Some links are not functioning, some bugs / errors may be encountered and this website is still incomplete.

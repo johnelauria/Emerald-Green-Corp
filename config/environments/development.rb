@@ -22,7 +22,7 @@ Emeraldgreencorp::Application.configure do
   :port                 => 587,
   :domain               => "gmail.com",
   :user_name            => 'johnelauria@gmail.com',
-  :password             => 'Whitef0x23',
+  :password             => '$ys2012tems?',
   :authentication       => 'plain',
   :enable_starttls_auto => true
   }

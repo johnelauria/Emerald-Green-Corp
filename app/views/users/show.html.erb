@@ -1,18 +1,41 @@
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
+<div align="center">
+	<% if @user.logo.present? %>
+		<%= image_tag(@user.logo) %>
+	<% else %>
+		<%= image_tag("nologo.jpg") %>
+	<% end %>
+</div>
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
+ <h1><%= @user.name %></h1>
+<br />
 
-<p>
-  <b>Admin:</b>
-  <%= @user.admin %>
-</p>
+<ul class="nav nav-pills" id="myTab">
+	<li class="active"><a href="#about" data-toggle="tab">About</a></li>
+	<li><a href="#gallery" data-toggle="tab">Gallery</a></li>
+	<li><a href="#hiring" data-toggle="tab">Hiring</a></li>
+	<li><a href="#contacts" data-toggle="tab">Contacts</a></li>
+</ul>
 
+<div class="tab-content">
+	<div id="about" class="tab-pane active">
+		<p>
+  			<b>About us: </b><br />
+  			<%= @user.description %>
+		</p>
+	</div>
+	<div id="gallery" class="tab-pane">
+		<%= render 'users/images' %>
+	</div>
+	<div id="hiring" class="tab-pane">
+		Hiring...
+	</div>
+	<div id="contacts" class="tab-pane">
+		<strong>Email: </strong><%= @user.email %>
+	</div>
+</div>
 
-<%= link_to 'Edit', edit_user_path(@user), class: "btn btn-mini btn-info" %> |
-<%= link_to 'Back', users_path, class: "btn btn-mini btn-inverse" %>
+<br />
+<% if signed_in? %>
+	<%= link_to 'Edit', edit_user_path(@user), class: "btn btn-mini btn-info" %> |
+	<%= link_to 'Back', users_path, class: "btn btn-mini btn-inverse" %>
+<% end %>

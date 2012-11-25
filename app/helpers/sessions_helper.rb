@@ -41,4 +41,11 @@ module SessionsHelper
 	def store_location
 		session[:return_to] = request.fullpath
 	end
+
+	 def admin_user
+      if !current_user.admin?
+        flash[:warning] = "Your account is not authorized to access that page. Only administrators can access that page. Please contact them if you want access"
+        redirect_to root_path
+      end
+    end
 end

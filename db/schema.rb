@@ -11,11 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121124024239) do
+ActiveRecord::Schema.define(:version => 20121125025731) do
 
   create_table "emailus", :force => true do |t|
     t.string   "email"
     t.text     "message"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "images", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "image"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -35,6 +42,8 @@ ActiveRecord::Schema.define(:version => 20121124024239) do
     t.boolean  "admin"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "logo"
+    t.text     "description"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

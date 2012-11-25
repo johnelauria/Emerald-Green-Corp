@@ -1,6 +1,9 @@
 class EmailusController < ApplicationController
   # GET /emailus
   # GET /emailus.json
+
+  before_filter :admin_user
+
   def index
     @emailus = Emailu.all
 

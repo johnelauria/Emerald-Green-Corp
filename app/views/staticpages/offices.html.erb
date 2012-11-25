@@ -1,0 +1,20 @@
+<h1>Offices</h1>
+<table class="table">
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>About</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <% if user.logo.present? %>
+      <td><%= image_tag(user.logo, size: "150x100") %></td>
+    <% else %>
+      <td><%= image_tag("nologo.jpg", size: "75x100") %></td>
+    <% end %>
+    <td><%= link_to user.name, user %></td>
+    <td><%= link_to truncate(strip_tags(user.description), length: 70), user %></td>
+  </tr>
+<% end %>
+</table>

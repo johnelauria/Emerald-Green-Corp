@@ -2,6 +2,8 @@ class SmstextsController < ApplicationController
   # GET /smstexts
   # GET /smstexts.json
 
+  before_filter :admin_user
+
   require 'rubygems'
   require 'clickatell'
 
@@ -47,12 +49,12 @@ class SmstextsController < ApplicationController
     api = Clickatell::API.authenticate(3394680, "johnelauria", "$ys2012tems?")
     @smstext = Smstext.new(params[:smstext])
     recipient = @smstext.recipient
-    smsmessage = @smstext.message
+    smsmessage = @smstext.smsmessage
     api.send_message(recipient, smsmessage)
 
     respond_to do |format|
       if @smstext.save
-        flash[:success] = "You have successfully sent an SMS message"
+        flash[:success] = "You have successfully sent a SMS message"
         format.html { redirect_to @smstext }
         format.json { render json: @smstext, status: :created, location: @smstext }
       else

@@ -5,7 +5,8 @@ class StaticpagesController < ApplicationController
   def aboutus
   end
 
-  def officers
+  def offices
+    @users = User.all
   end
 
   def contactus
