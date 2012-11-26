@@ -2,10 +2,10 @@ class SmstextsController < ApplicationController
   # GET /smstexts
   # GET /smstexts.json
 
-  before_filter :admin_user
-
   require 'rubygems'
   require 'clickatell'
+
+  before_filter :admin_user
 
   def index
     @smstexts = Smstext.all

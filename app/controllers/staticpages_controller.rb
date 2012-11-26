@@ -1,5 +1,6 @@
 class StaticpagesController < ApplicationController
   def home
+    @applicants = Applicant.all
   end
 
   def aboutus

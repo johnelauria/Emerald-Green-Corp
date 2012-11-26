@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   before_filter :signed_in_user, only: [ :index, :edit, :destroy ]
   before_filter :correct_user, only: [ :edit, :update ]
   before_filter :admin_user, only: [ :new, :create, :destroy ]
+  
   def index
     @users = User.all
 
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @image = Image.new(params[:image])
+    @applicant = Applicant.new(params[:applicant])
 
     respond_to do |format|
       format.html # show.html.erb

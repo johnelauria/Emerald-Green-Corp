@@ -39,10 +39,11 @@
 </div>
 
 	<div class="span4">
-		<a href="#"><%= image_tag("careers.jpg") %></a>
-		<article>
-			Apply now and be part of our family! With 7 Job vacancies available in 3 different offices, choose one among the available job vacancies left that suits your skills and abilities
-		</article>
+		<%= link_to image_tag("careers.jpg"), applicants_path %>
+		<small>
+			Apply now and be part of our family! With <%= pluralize(@applicants.count, "Job vacancy") %>, choose one among the available job vacancies left that suits your skills and abilities
+		</small>
+		<br /><br /><br /><br />
 		<a href="#"><%= image_tag("gallery.jpg") %></a>
 	</div>
 </div>

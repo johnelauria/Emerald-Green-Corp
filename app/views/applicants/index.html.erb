@@ -1,0 +1,27 @@
+<h1>Listing required applicants</h1>
+
+<table>
+  <tr>
+    <th>Position</th>
+    <th>Skills</th>
+    <th>Qualifications</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @applicants.each do |applicant| %>
+  <tr>
+    <td><%= applicant.position %></td>
+    <td><%= applicant.skills %></td>
+    <td><%= applicant.qualifications %></td>
+    <td><%= link_to 'Show', applicant %></td>
+    <td><%= link_to 'Edit', edit_applicant_path(applicant) %></td>
+    <td><%= link_to 'Destroy', applicant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Applicant', new_applicant_path %>

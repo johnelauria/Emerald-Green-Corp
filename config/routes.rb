@@ -1,4 +1,7 @@
 Emeraldgreencorp::Application.routes.draw do
+  resources :applicants
+
+
   resources :images
 
 
