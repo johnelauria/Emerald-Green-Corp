@@ -12,8 +12,11 @@
   </div>
 </div>
 <% end %>
-
-<p>We are current hiring <%= pluralize(@applicants.count, "applicant") %></p>
+<% if @user.applicants.all.count == 0 %>
+  <p>We are currently not accepting applicants at this time...</p>
+<% else %>
+  <p>We are current hiring <%= pluralize(@user.applicants.count, "applicant") %></p>
+<% end %>
 
 <table class="table">
   <tr>

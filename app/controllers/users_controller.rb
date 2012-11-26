@@ -21,7 +21,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @image = Image.new(params[:image])
     @applicant = Applicant.new(params[:applicant])
-    @applicants = @user.applicants.all
 
     respond_to do |format|
       format.html # show.html.erb
