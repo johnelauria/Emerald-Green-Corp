@@ -13,7 +13,7 @@
 </div>
 <% end %>
 
-<p>We are current hiring <%= pluralize(@user.applicants.all.count, "applicant") %></p>
+<p>We are current hiring <%= pluralize(@applicants.count, "applicant") %></p>
 
 <table class="table">
   <tr>
