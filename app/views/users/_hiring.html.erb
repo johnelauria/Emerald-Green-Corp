@@ -1,12 +1,19 @@
 <% if current_user == @user %>
-  <%= render 'applicants/form' %>
+<div class="accordion" id="formaccordion">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#formaccordion" href="#applicantform">Request new applicant</a>
+    </div>
+    <div id="applicantform" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <%= render 'applicants/form' %>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
 
-<% if @user.applicants.all.count == 0 %>
-  <p>We are currently not hiring any applicants right now...</p>
-<% else %>
-  <p>We are current hiring <%= pluralize(@user.applicants.all.count, "applicant") %></p>
-<% end %>
+<p>We are current hiring <%= pluralize(@user.applicants.all.count, "applicant") %></p>
 
 <table class="table">
   <tr>
@@ -19,6 +26,7 @@
     <td><%= applicant.position %></td>
     <td><%= applicant.skills %></td>
     <td><%= applicant.qualifications %></td>
+    <td><%= link_to "Remove", applicant, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-mini btn-danger" %></td>
   </tr>
 <% end %>
 </table>
