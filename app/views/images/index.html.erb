@@ -5,21 +5,17 @@
     <th>User</th>
     <th>Image</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @images.each do |image| %>
   <tr>
-    <td><%= image.user_id %></td>
-    <td><%= image_tag(image.image, size: "200x150") %></td>
-    <td><%= link_to 'Show', image %></td>
-    <td><%= link_to 'Edit', edit_image_path(image) %></td>
-    <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= User.find_by_id(image.user_id).name %></td>
+    <td><%= link_to image_tag(image.image, size: "200x150"), image %></td>
+    <% if signed_in? && current_user.admin? %>
+      <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Image', new_image_path %>

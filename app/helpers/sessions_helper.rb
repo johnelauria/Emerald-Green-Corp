@@ -48,4 +48,8 @@ module SessionsHelper
         redirect_to root_path
       end
     end
+
+    def correct_user
+      @user = User.find(params[:id]) == current_user
+    end
 end

@@ -11,7 +11,9 @@ Emeraldgreencorp::Application.routes.draw do
   resources :emailus
 
 
-  resources :users
+  resources :users do
+    put :changeadmin, on: :member
+  end
 
   resources :sessions, only: [:new, :create, :destroy]
 

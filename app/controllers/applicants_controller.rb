@@ -1,6 +1,8 @@
 class ApplicantsController < ApplicationController
   # GET /applicants
   # GET /applicants.json
+
+  before_filter :signed_in_user, only: [:new, :create, :destroy]
   def index
     @applicants = Applicant.all
 
@@ -81,4 +83,14 @@ class ApplicantsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def correct_user
+      @user = User.find(params[:id])
+      if !current_user?(@user)
+        flash[:warning] = "You are not authorized to access that page"
+        redirect_to root_path
+      end
+    end
 end

@@ -36,6 +36,8 @@
 
 <br />
 <% if signed_in? %>
-	<%= link_to 'Edit', edit_user_path(@user), class: "btn btn-mini btn-info" %> |
+
+		<%= link_to 'Edit', edit_user_path(@user), class: "btn btn-mini btn-info" %> |
+
 	<%= link_to 'Back', users_path, class: "btn btn-mini btn-inverse" %>
 <% end %>

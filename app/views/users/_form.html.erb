@@ -35,10 +35,12 @@
     <%= f.label :description %>
     <%= f.text_area :description, rows: 5 %><small>(optional)</small>
   </div>
+  <% if current_user.admin? %>
   <div class="field">
     <%= f.label :admin %><br />
     <%= f.check_box :admin %>
   </div>
+  <% end %>
   <div class="actions">
     <%= f.submit "Create account", class: "btn btn-success" %>
   </div>

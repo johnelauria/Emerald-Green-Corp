@@ -1,6 +1,9 @@
 class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
+
+  before_filter :signed_in_user, only: [:new, :create, :edit, :destroy]
+
   def index
     @images = Image.all
 

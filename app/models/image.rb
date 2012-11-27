@@ -3,5 +3,7 @@ class Image < ActiveRecord::Base
 
   belongs_to :user
 
+  validate :image, presence: true
+
   mount_uploader :image, AvatarUploader
 end

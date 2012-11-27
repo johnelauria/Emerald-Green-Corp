@@ -5,9 +5,15 @@ class UsersController < ApplicationController
   before_filter :signed_in_user, only: [ :index, :edit, :destroy ]
   before_filter :correct_user, only: [ :edit, :update ]
   before_filter :admin_user, only: [ :new, :create, :destroy ]
-  
+
+  def changeadmin
+    @user = User.find(params[:id])
+    @user.toggle!(:admin)
+    redirect_to users_path
+  end
+
   def index
-    @users = User.all
+    @users = User.all.sort { |a, b| a.name.downcase <=> b.name.downcase }
 
     respond_to do |format|
       format.html # index.html.erb

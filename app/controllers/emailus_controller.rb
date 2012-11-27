@@ -2,6 +2,7 @@ class EmailusController < ApplicationController
   # GET /emailus
   # GET /emailus.json
 
+  before_filter :signed_in_user, only: [:index, :destroy]
   before_filter :admin_user, only: [ :index, :destroy ]
 
   def index
