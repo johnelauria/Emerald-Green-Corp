@@ -1,0 +1,33 @@
+<%= form_for(@spaceforlease) do |f| %>
+  <% if @spaceforlease.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@spaceforlease.errors.count, "error") %> prohibited this spaceforlease from being saved:</h2>
+
+      <ul>
+      <% @spaceforlease.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :main_image %><br />
+    <%= f.file_field :main_image %>
+  </div>
+  <div class="field">
+    <%= f.label :unit %><br />
+    <%= f.text_field :unit %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br />
+    <%= f.select :level, "<option>First level</option><option>Second Level</option><option>Third level</option><option>Fourth level</option>".html_safe, prompt: "Please select" %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, rows: 6 %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Post", class: "btn btn-success" %>
+  </div>
+<% end %>

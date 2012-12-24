@@ -5,6 +5,8 @@ gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'clickatell'
 gem 'carrierwave'
+gem 'bootstrap-will_paginate'
+gem 'will_paginate'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

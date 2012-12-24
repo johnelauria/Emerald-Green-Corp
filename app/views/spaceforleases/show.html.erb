@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<div class="carousel slide" id="space">
+	<div class="carousel-inner">
+		<div class="active item">
+			<%= image_tag(@spaceforlease.main_image) %>
+			<div class="carousel-caption">
+				<%= truncate(strip_tags(@spaceforlease.description), length: 50) %>
+			</div>
+		</div>
+		<% Spaceforleaseimage.all.each do |space| %>
+			<div class="item">
+				<%= link_to image_tag(space.image), space %>
+				<div class="carousel-caption">
+					<%= truncate(strip_tags(space.description), length: 50) %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+	<a class="carousel-control left" href="#space" data-slide="prev">&lsaquo;</a>
+	<a class="carousel-control right" href="#space" data-slide="next">&rsaquo;</a>
+</div>
+
+<p>
+  <b>Unit:</b>
+  <%= @spaceforlease.unit %>
+</p>
+
+<p>
+  <b>Level:</b>
+  <%= @spaceforlease.level %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @spaceforlease.description %>
+</p>
+
+<% if signed_in? && current_user.admin? %>
+<%= link_to 'Edit', edit_spaceforlease_path(@spaceforlease) %> | 
+<a href="#more_images" data-toggle="modal">Add images</a> | 
+<% end %>
+<%= link_to 'Back', :back %>
+<br /><br />
+<div id="more_images" class="modal hide fade">
+	<div class="modal-header">
+		<button class="close" data-dismiss="modal">x</button>
+		<h1>Add images</h1>
+	</div>
+	<div class="modal-body">
+		<%= render 'spaceforleaseimages/form' %>
+	</div>
+	<div class="modal-footer">
+		<a class="btn" data-dismiss="modal">Close</a>
+	</div>
+</div>

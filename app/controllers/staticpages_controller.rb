@@ -1,9 +1,13 @@
 class StaticpagesController < ApplicationController
   def home
     @applicants = Applicant.all
+    @spaceforleases = Spaceforlease.all
   end
 
   def aboutus
+  end
+
+  def spaceforlease
   end
 
   def offices

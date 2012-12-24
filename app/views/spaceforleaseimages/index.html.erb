@@ -1,0 +1,27 @@
+<h1>Listing spaceforleaseimages</h1>
+
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Description</th>
+    <th>Spaceforlease</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @spaceforleaseimages.each do |spaceforleaseimage| %>
+  <tr>
+    <td><%= spaceforleaseimage.image %></td>
+    <td><%= spaceforleaseimage.description %></td>
+    <td><%= spaceforleaseimage.spaceforlease_id %></td>
+    <td><%= link_to 'Show', spaceforleaseimage %></td>
+    <td><%= link_to 'Edit', edit_spaceforleaseimage_path(spaceforleaseimage) %></td>
+    <td><%= link_to 'Destroy', spaceforleaseimage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Spaceforleaseimage', new_spaceforleaseimage_path %>

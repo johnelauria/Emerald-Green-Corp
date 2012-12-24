@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<div align="center">
+<p>
+  <%= image_tag(@spaceforleaseimage.image) %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @spaceforleaseimage.description %>
+</p>
+</div>
+
+<% if signed_in? && current_user.admin? %>
+<%= link_to 'Edit', edit_spaceforleaseimage_path(@spaceforleaseimage) %> |
+<% end %>
+<%= link_to 'Back', :back %>

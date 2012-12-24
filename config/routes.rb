@@ -1,4 +1,10 @@
 Emeraldgreencorp::Application.routes.draw do
+  resources :spaceforleaseimages
+
+
+  resources :spaceforleases
+
+
   resources :applicants
 
 
