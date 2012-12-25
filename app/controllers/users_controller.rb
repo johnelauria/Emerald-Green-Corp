@@ -27,6 +27,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @image = Image.new(params[:image])
     @applicant = Applicant.new(params[:applicant])
+    @clientprofiles = Clientprofile.all
+    @clientprofile = Clientprofile.new(params[:clientprofile])
 
     respond_to do |format|
       format.html # show.html.erb

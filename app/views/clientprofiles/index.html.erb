@@ -1,0 +1,27 @@
+<h1>Listing clientprofiles</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @clientprofiles.each do |clientprofile| %>
+  <tr>
+    <td><%= clientprofile.title %></td>
+    <td><%= clientprofile.content %></td>
+    <td><%= clientprofile.user_id %></td>
+    <td><%= link_to 'Show', clientprofile %></td>
+    <td><%= link_to 'Edit', edit_clientprofile_path(clientprofile) %></td>
+    <td><%= link_to 'Destroy', clientprofile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Clientprofile', new_clientprofile_path %>

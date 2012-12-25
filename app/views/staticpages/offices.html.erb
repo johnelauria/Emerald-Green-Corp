@@ -14,10 +14,10 @@
       <td><%= image_tag("nologo.jpg", size: "75x100") %></td>
     <% end %>
     <td><%= link_to user.name, user %></td>
-    <% if user.description.nil? %>
+    <% if user.clientprofiles.first.nil? %>
       <td><font color="red">No information provided</font></td>
     <% else %>
-      <td><%= truncate(strip_tags(user.description), length: 70) %></td>
+      <td><%= truncate(strip_tags(user.clientprofiles.first.content), length: 70) %></td>
     <% end %>
   </tr>
 <% end %>

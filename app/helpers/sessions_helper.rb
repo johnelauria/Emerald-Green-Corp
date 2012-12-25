@@ -43,8 +43,8 @@ module SessionsHelper
 	end
 
 	def admin_user
-      if !current_user.admin?
-        flash[:warning] = "Your account is not authorized to access that page. Only administrators can access that page. Please contact them if you want access"
+      unless signed_in? && current_user.admin?
+        flash[:danger] = "Your account is not authorized to access that page."
         redirect_to root_path
       end
     end

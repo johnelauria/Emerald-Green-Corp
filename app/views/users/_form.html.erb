@@ -15,9 +15,9 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+  <div class="field"> 
+    <%= f.label "username" %><br />
+    <%= f.text_field :email %> <small>*will be used for logging in*</small>
   </div>
   <div class="field">
     <%= f.label :password %><br />
@@ -29,11 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :logo %>
-    <%= f.file_field :logo %><small>(optional)</small>
-  </div>
-  <div class="description">
-    <%= f.label :description %>
-    <%= f.text_area :description, rows: 5 %><small>(optional)</small>
+    <%= f.file_field :logo %><small>*optional*</small>
   </div>
   <% if current_user.admin? %>
   <div class="field">

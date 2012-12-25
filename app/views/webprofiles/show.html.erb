@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @webprofile.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= sanitize(@webprofile.content) %>
+</p>
+
+
+<%= link_to 'Edit', edit_webprofile_path(@webprofile) %> |
+<%= link_to 'Back', webprofiles_path %>

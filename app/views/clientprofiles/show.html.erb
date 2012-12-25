@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @clientprofile.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @clientprofile.content %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @clientprofile.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_clientprofile_path(@clientprofile) %> |
+<%= link_to 'Back', clientprofiles_path %>

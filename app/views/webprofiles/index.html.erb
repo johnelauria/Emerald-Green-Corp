@@ -1,0 +1,25 @@
+<h1>Listing webprofiles</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @webprofiles.each do |webprofile| %>
+  <tr>
+    <td><%= webprofile.title %></td>
+    <td><%= webprofile.content %></td>
+    <td><%= link_to 'Show', webprofile %></td>
+    <td><%= link_to 'Edit', edit_webprofile_path(webprofile) %></td>
+    <td><%= link_to 'Destroy', webprofile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Webprofile', new_webprofile_path %>

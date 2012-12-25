@@ -2,6 +2,8 @@ class SpaceforleasesController < ApplicationController
   # GET /spaceforleases
   # GET /spaceforleases.json
 
+  before_filter :admin_user, only: [ :create, :new, :edit, :update ]
+
   def index
     @spaceforleases = Spaceforlease.all
 

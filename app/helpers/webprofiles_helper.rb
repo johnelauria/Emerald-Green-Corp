@@ -1,0 +1,2 @@
+module WebprofilesHelper
+end

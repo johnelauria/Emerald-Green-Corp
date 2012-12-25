@@ -1,4 +1,10 @@
 Emeraldgreencorp::Application.routes.draw do
+  resources :clientprofiles
+
+
+  resources :webprofiles
+
+
   resources :spaceforleaseimages
 
 

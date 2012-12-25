@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121224013628) do
+ActiveRecord::Schema.define(:version => 20121225014809) do
 
   create_table "applicants", :force => true do |t|
     t.string   "position"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(:version => 20121224013628) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.integer  "user_id"
+  end
+
+  create_table "clientprofiles", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "emailus", :force => true do |t|
@@ -69,10 +77,16 @@ ActiveRecord::Schema.define(:version => 20121224013628) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "logo"
-    t.text     "description"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "webprofiles", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

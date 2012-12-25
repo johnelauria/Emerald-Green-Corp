@@ -1,13 +1,23 @@
-<h1>Company Profile</h1>
-			<p><strong>Emerald Green Corporation</strong> is a family owned company engaged in real estate business, particularly buying, leasing and selling. It has become one of the rising real estate companies in Southern Metro Manila since its incorporation in 1996. <strong>ELAURIA Family</strong> is the majority stockholder; currently <strong>Mr. Mar M. Elauria</strong> is the general manager of the corporation. Prior to this, Mr. Mar had been one of the Directors of <strong>RURAL BANK OF CALAMBA, INC.</strong> from 1985 to 1996 and was elected as the Bank President in 1994 to 1996. Persecuted by the financial crisis that swept the country in 1998, it was able to overcome the said crisis and now growing.</p>
-			<p>The insistent management fashion characterized by strong determination, joined by its extremely provoked, multi-disciplined personnel, is one of the numerous reasons why the Corporation has been able to survive the stumpy blows of the Real Estate Industry.</p>
-			<p>As of now, <strong>EMERALD</strong> has acquired several real estate properties and sold as well at reasonable and money-spinning prices from Las Piñas, Cavite and Calamba City. This has led to buy more strategically located properties.</p>
-<br />
-<h1>Our Vision</h1>
-			<p>We visualize expectations that are made up of business business communities where the significance of entities are renowned, where console is noteworthy, where a first-rate life is precious.</p>
-<br />
-<h1>The Team</h1>
-			<p>Our bow is competent and capable workforce, well directed to provide clients the best possible service to assist them in realizing their thoughts.</p>
-<br />
-<h1>The Projects</h1>
-			<p>At hand, we have an eight-hectare raw land project in the south, which may be benefited by the south rail transit project of the government, real properties in Molino 4 Bacoor Cavite and in the cities of Calamba and Las Piñas</p>
+<% @webprofiles.each do |webprofile| %>
+	<h1><%= webprofile.title %></h1>
+	<% if signed_in? && current_user.admin? %>
+		<small><%= link_to "edit content", edit_webprofile_path(webprofile) %></small>
+	<% end %>
+	<br />
+	<p><%= sanitize(webprofile.content) %></p>
+<% end %>
+
+<% if signed_in? && current_user.admin? %>
+	<div class="accordion" id="newpost">
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#newpost" href="#addnewhomepost">Add new content here</a>
+			</div>
+			<div id="addnewhomepost" class="accordion-body collapse">
+				<div class="accordion-inner">
+					<%= render 'webprofiles/form' %>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>

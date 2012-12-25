@@ -2,6 +2,8 @@ class StaticpagesController < ApplicationController
   def home
     @applicants = Applicant.all
     @spaceforleases = Spaceforlease.all
+    @webprofiles = Webprofile.all
+    @webprofile = Webprofile.new(params[:webprofile])
   end
 
   def aboutus
