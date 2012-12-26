@@ -14,4 +14,5 @@
 <% if signed_in? && current_user.admin? %>
 <%= link_to 'Edit', edit_spaceforleaseimage_path(@spaceforleaseimage) %> |
 <% end %>
-<%= link_to 'Back', :back %>
+<%= link_to 'Back', :back %> |
+<%= link_to 'Delete', @spaceforleaseimage, method: :delete, data: { confirm: "Are you sure?" } %>

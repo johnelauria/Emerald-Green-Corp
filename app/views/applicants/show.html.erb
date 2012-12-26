@@ -1,18 +1,25 @@
 <p id="notice"><%= notice %></p>
 
+<div align="center">
+	<h1><%= @applicant.user.name %></h1>
+	<% if @applicant.user.logo.present? %>
+		<%= image_tag(@applicant.user.logo) %><br />
+	<% else %>
+		<%= image_tag("nologo.jpg") %><br />
+	<% end %>
+	<%= @applicant.user.clientprofiles.first.content %>
+<br /><br />
+<h3><%= @applicant.position %></h3>
+</div>
+
 <p>
-  <b>Position:</b>
-  <%= @applicant.position %>
+  <b>Responsibilities:</b>
+  <%= sanitize(@applicant.skills) %>
 </p>
 
 <p>
-  <b>Skills:</b>
-  <%= @applicant.skills %>
-</p>
-
-<p>
-  <b>Qualifications:</b>
-  <%= @applicant.qualifications %>
+  <b>Requirements:</b>
+  <%= sanitize(@applicant.qualifications) %>
 </p>
 
 <%= link_to 'Back', applicants_path, class: "btn btn-success" %>

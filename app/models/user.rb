@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
-  attr_accessible :admin, :email, :name, :password, :password_confirmation, :remember_token, :description, :logo
+  attr_accessible :admin, :email, :name, :password, :password_confirmation, :remember_token, :description, :logo, :unit, :level
   has_secure_password
 
-  has_many :images
-  has_many :applicants
-  has_many :clientprofiles
+  has_many :images, dependent: :destroy
+  has_many :applicants, dependent: :destroy
+  has_many :clientprofiles, dependent: :destroy
 
   before_save { self.email.downcase! }
   before_save { create_remember_token }
@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }
-  validates :password_confirmation, presence: true
+  validates :password_confirmation, :unit, :level, presence: true
 
   mount_uploader :logo, AvatarUploader
 

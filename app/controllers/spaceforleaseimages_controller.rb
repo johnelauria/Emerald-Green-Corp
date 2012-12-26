@@ -64,7 +64,7 @@ class SpaceforleaseimagesController < ApplicationController
 
     respond_to do |format|
       if @spaceforleaseimage.update_attributes(params[:spaceforleaseimage])
-        format.html { redirect_to @spaceforleaseimage, notice: 'Spaceforleaseimage was successfully updated.' }
+        format.html { redirect_to @spaceforleaseimage, notice: 'Image was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -80,7 +80,7 @@ class SpaceforleaseimagesController < ApplicationController
     @spaceforleaseimage.destroy
 
     respond_to do |format|
-      format.html { redirect_to spaceforleaseimages_url }
+      format.html { redirect_to spaceforleases_path }
       format.json { head :no_content }
     end
   end

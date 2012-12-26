@@ -1,2 +1,6 @@
 <h1>Welcome</h1>
-			<p>Emerald Green Corporation is a family owned company engaged in real estate business, particularly buying, leasing and selling. It has become one of the rising real estate companies in Southern Metro Manila since its incorporation in 1996. Persecuted by the financial crisis that swept the country in 1998, it was able to overcome the said crisis and now growing...... <a href="#aboutustab" data-toggle="tab">Read more</a></p>
+	<p>Emerald Green Corporation welcomes <%= link_to User.last.name, User.last %> which started their first business operation at <%= User.last.created_at.strftime("%m-%d-%y") %> in Emerald Green Building. <%= User.last.clientprofiles.first.content unless User.last.clientprofiles.nil? %></p>
+<br />
+	<p>Want to start your own business? We currently have <%= pluralize(Spaceforlease.all.count, "Space") %> available for lease in the building. Images and details are provided in the "Spaces for lease" tab on the right side of this post or by simply <a href="#spaceforlease" data-toggle="tab">clicking here</a>. </p>
+<br />
+	<p>Searching for a job? We are in need of <%= pluralize(@applicants.count, "new employee") %> to fill the vacant positions available. <%= link_to "Click here", applicants_path %> for more details and search for the job that suits your skills.</p>

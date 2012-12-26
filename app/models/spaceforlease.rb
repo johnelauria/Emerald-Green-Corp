@@ -3,5 +3,5 @@ class Spaceforlease < ActiveRecord::Base
 
   mount_uploader :main_image, AvatarUploader
 
-  has_many :spaceforleaseimages
+  has_many :spaceforleaseimages, dependent: :destroy
 end

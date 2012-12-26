@@ -31,6 +31,14 @@
     <%= f.label :logo %>
     <%= f.file_field :logo %><small>*optional*</small>
   </div>
+  <div class="field">
+    <%= f.label :level %>
+    <%= f.select :level, "<option>Ground Floor</option><option>Second Floor</option><option>Third Floor</option><option>Fourth Floor</option>".html_safe, prompt: "Please select level" %>
+  </div>
+  <div class="field">
+    <%= f.label :unit %>
+    <%= f.text_field :unit %>
+  </div>
   <% if current_user.admin? %>
   <div class="field">
     <%= f.label :admin %><br />

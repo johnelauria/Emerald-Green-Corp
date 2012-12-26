@@ -1,7 +1,10 @@
 <% @webprofiles.each do |webprofile| %>
 	<h1><%= webprofile.title %></h1>
 	<% if signed_in? && current_user.admin? %>
-		<small><%= link_to "edit content", edit_webprofile_path(webprofile) %></small>
+		<small>
+			<%= link_to "Edit content", edit_webprofile_path(webprofile) %> | 
+			<%= link_to "Remove content", webprofile, method: :delete, data: { confirm: "Are you sure?" } %>
+		</small>
 	<% end %>
 	<br />
 	<p><%= sanitize(webprofile.content) %></p>

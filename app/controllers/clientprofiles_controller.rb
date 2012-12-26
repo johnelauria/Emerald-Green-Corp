@@ -1,6 +1,9 @@
 class ClientprofilesController < ApplicationController
   # GET /clientprofiles
   # GET /clientprofiles.json
+
+  before_filter :signed_in_user
+  
   def index
     @clientprofiles = Clientprofile.all
 
