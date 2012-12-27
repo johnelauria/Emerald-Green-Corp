@@ -1,0 +1,45 @@
+<%= form_for(@applicantresume) do |f| %>
+  <% if @applicantresume.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@applicantresume.errors.count, "error") %> prohibited this applicantresume from being saved:</h2>
+
+      <ul>
+      <% @applicantresume.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <%= f.hidden_field :user_id, value: @applicant.user.id %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile_number %><br />
+    <%= f.text_field :mobile_number %>
+  </div>
+  <div class="field">
+    <%= f.label :nationality %><br />
+    <%= f.text_field :nationality %>
+  </div>
+  <div class="field">
+    <%= f.label :upload_resume %><br />
+    <%= f.file_field :upload_resume %><br /><small>*only .doc, .docx, .pdf, .txt and .rtf files are accepted*</small>
+  </div>
+  <div class="field">
+    <%= f.label :cover_letter %><br />
+    <%= f.text_area :cover_letter, rows: 8 %><br /><small>*optional*</small>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit", class: "btn btn-success" %>
+  </div>
+<% end %>

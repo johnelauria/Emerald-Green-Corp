@@ -7,7 +7,10 @@
 	<% else %>
 		<%= image_tag("nologo.jpg") %><br />
 	<% end %>
-	<%= @applicant.user.clientprofiles.first.content %>
+	<% @applicant.user.clientprofiles.each do |clientprofile| %>
+		<h3><%= clientprofile.title %></h3><br />
+		<p><%= clientprofile.content %></p>
+	<% end %>
 <br /><br />
 <h3><%= @applicant.position %></h3>
 </div>
@@ -22,4 +25,13 @@
   <%= sanitize(@applicant.qualifications) %>
 </p>
 
+<p><%= @applicant.message unless @applicant.message.nil? %></p>
+
 <%= link_to 'Back', applicants_path, class: "btn btn-success" %>
+<br /><br />
+<div align="center">
+<h3>Apply Now!</h3>
+<% if @applicant.accept_resume? %>
+<%= render 'applicantresumes/form' unless signed_in? %>
+<% end %> 
+</div>

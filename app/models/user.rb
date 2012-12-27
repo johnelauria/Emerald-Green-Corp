@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :images, dependent: :destroy
   has_many :applicants, dependent: :destroy
   has_many :clientprofiles, dependent: :destroy
+  has_many :applicantresumes, dependent: :destroy
 
   before_save { self.email.downcase! }
   before_save { create_remember_token }

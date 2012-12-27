@@ -1,0 +1,2 @@
+module ApplicantresumesHelper
+end

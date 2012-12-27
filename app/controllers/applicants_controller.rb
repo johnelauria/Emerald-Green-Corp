@@ -16,6 +16,7 @@ class ApplicantsController < ApplicationController
   # GET /applicants/1.json
   def show
     @applicant = Applicant.find(params[:id])
+    @applicantresume = Applicantresume.new(params[:applicantresume])
 
     respond_to do |format|
       format.html # show.html.erb

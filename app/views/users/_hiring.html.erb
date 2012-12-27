@@ -9,7 +9,32 @@
         <%= render 'applicants/form' %>
       </div>
     </div>
+  <div class="accordion-heading">
+    <a class="accordion-toggle" data-toggle="collapse" data-parent="#formaccordion" href="#applicants">View applicants</a>
   </div>
+  <div id="applicants" class="accordion-body collapse">
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile Number</th>
+        <th>Nationality</th>
+        <th>Uploaded Resume</th>
+        <th>Cover message</th>
+      </tr>
+    <% @user.applicantresumes.each do |applicant| %>
+      <tr>
+        <td><%= applicant.name %></td>
+        <td><%= applicant.email %></td>
+        <td><%= applicant.mobile_number %></td>
+        <td><%= applicant.nationality %></td>
+        <td><%= link_to "Download resume", applicant.upload_resume.url %></td>
+        <td><%= truncate(strip_tags(applicant.cover_letter), length: 50) %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>
 </div>
 <% end %>
 <% if @user.applicants.all.count == 0 %>

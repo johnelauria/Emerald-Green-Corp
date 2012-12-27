@@ -1,0 +1,33 @@
+<h1>Listing applicantresumes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Mobile number</th>
+    <th>Nationality</th>
+    <th>Upload resume</th>
+    <th>Cover letter</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @applicantresumes.each do |applicantresume| %>
+  <tr>
+    <td><%= applicantresume.name %></td>
+    <td><%= applicantresume.email %></td>
+    <td><%= applicantresume.mobile_number %></td>
+    <td><%= applicantresume.nationality %></td>
+    <td><%= applicantresume.upload_resume %></td>
+    <td><%= applicantresume.cover_letter %></td>
+    <td><%= link_to 'Show', applicantresume %></td>
+    <td><%= link_to 'Edit', edit_applicantresume_path(applicantresume) %></td>
+    <td><%= link_to 'Destroy', applicantresume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Applicantresume', new_applicantresume_path %>

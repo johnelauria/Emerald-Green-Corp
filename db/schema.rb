@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121226040531) do
+ActiveRecord::Schema.define(:version => 20121227021033) do
+
+  create_table "applicantresumes", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "mobile_number"
+    t.string   "nationality"
+    t.string   "upload_resume"
+    t.text     "cover_letter"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "user_id"
+  end
 
   create_table "applicants", :force => true do |t|
     t.string   "position"
@@ -20,6 +32,9 @@ ActiveRecord::Schema.define(:version => 20121226040531) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.integer  "user_id"
+    t.text     "message"
+    t.boolean  "accept_resume"
+    t.string   "resume"
   end
 
   create_table "clientprofiles", :force => true do |t|

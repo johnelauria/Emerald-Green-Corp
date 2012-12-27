@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Applied to: </b>
+  <%= @applicantresume.user.name %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @applicantresume.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @applicantresume.email %>
+</p>
+
+<p>
+  <b>Mobile number:</b>
+  <%= @applicantresume.mobile_number %>
+</p>
+
+<p>
+  <b>Nationality:</b>
+  <%= @applicantresume.nationality %>
+</p>
+
+<p>
+  <b>Uploaded resume:</b>
+  <%= link_to "Download resume", @applicantresume.upload_resume.url %>
+</p>
+
+<p>
+  <b>Cover letter:</b>
+  <%= @applicantresume.cover_letter %>
+
+</p>
+
+
+<%= link_to 'Edit', edit_applicantresume_path(@applicantresume) %> |
+<%= link_to 'Back', applicantresumes_path %>
