@@ -13,8 +13,8 @@
   <tr>
     <td><%= User.find_by_id(applicant.user_id).name %></td>
     <td><%= applicant.position %></td>
-    <td><%= sanitize(applicant.skills) %></td>
-    <td><%= sanitize(applicant.qualifications) %></td>
+    <td><%= sanitize(applicant.responsibilities) %></td>
+    <td><%= sanitize(applicant.requirements) %></td>
     <td><%= link_to 'Show', applicant, class: "btn btn-mini btn-success" %></td>
   </tr>
 <% end %>

@@ -17,21 +17,21 @@
 
 <p>
   <b>Responsibilities:</b>
-  <%= sanitize(@applicant.skills) %>
+  <%= sanitize(@applicant.responsibilities) %>
 </p>
 
 <p>
   <b>Requirements:</b>
-  <%= sanitize(@applicant.qualifications) %>
+  <%= sanitize(@applicant.requirements) %>
 </p>
-
+<br />
 <p><%= @applicant.message unless @applicant.message.nil? %></p>
 
 <%= link_to 'Back', applicants_path, class: "btn btn-success" %>
 <br /><br />
 <div align="center">
-<h3>Apply Now!</h3>
-<% if @applicant.accept_resume? %>
-<%= render 'applicantresumes/form' unless signed_in? %>
-<% end %> 
+  <% if @applicant.accept_resume? && !signed_in? %>
+    <h3>Apply Now!</h3>
+    <%= render 'applicantresumes/form' %>
+  <% end %>
 </div>

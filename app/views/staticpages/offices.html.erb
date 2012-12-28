@@ -4,6 +4,8 @@
     <th></th>
     <th>Name</th>
     <th>About</th>
+    <th>Level</th>
+    <th>Unit</th>
   </tr>
 
 <% @users.each do |user| %>
@@ -19,6 +21,8 @@
     <% else %>
       <td><%= truncate(strip_tags(user.clientprofiles.first.content), length: 70) %></td>
     <% end %>
+    <td><%= user.level %></td>
+    <td><%= user.unit %></td>
   </tr>
 <% end %>
 </table>

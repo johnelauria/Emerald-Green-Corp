@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
 
   <div class="field">
     <%= f.label :position %><br />
     <%= f.text_field :position %>
   </div>
   <div class="field">
-    <%= f.label "Responsibilities" %><br />
-    <%= f.text_area :skills, rows: 5, placeholder: "Wrap each responsibility inside <li>text here</li> to create a bullet form" %>
+    <%= f.label :responsibilities %><br />
+    <%= f.text_area :responsibilities, rows: 5, placeholder: "Wrap each responsibility inside <li>text here</li> to create a bullet form" %>
   </div>
   <div class="field">
-    <%= f.label "Requirements" %><br />
-    <%= f.text_area :qualifications, rows: 5, placeholder: "Wrap each requirements inside <li>text here</li> to create a bullet form" %>
+    <%= f.label :requirements %><br />
+    <%= f.text_area :requirements, rows: 5, placeholder: "Wrap each requirements inside <li>text here</li> to create a bullet form" %>
   </div>
   <div class="field">
     <%= f.label "Message / Comments" %><small>*optional</small><br />

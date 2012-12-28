@@ -46,14 +46,14 @@
 <table class="table">
   <tr>
     <th>Position</th>
-    <th>Skills</th>
-    <th>Qualifications</th>
+    <th>Responsibilities</th>
+    <th>Requirements</th>
   </tr>
 <% @user.applicants.each do |applicant| %>
   <tr>
-    <td><%= applicant.position %></td>
-    <td><%= sanitize(applicant.skills) %></td>
-    <td><%= sanitize(applicant.qualifications) %></td>
+    <td><%= link_to applicant.position, applicant %></td>
+    <td><%= sanitize(truncate(strip_tags(applicant.responsibilities), length: 50)) %></td>
+    <td><%= sanitize(truncate(strip_tags(applicant.requirements), length: 50)) %></td>
     <td>
     <div class="btn-group">
       <%= link_to "Edit", edit_applicant_path(applicant), class: "btn btn-mini btn-info" %>

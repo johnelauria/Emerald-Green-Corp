@@ -1,7 +1,7 @@
 class Applicant < ActiveRecord::Base
-  attr_accessible :position, :qualifications, :skills, :user_id, :message, :accept_resume
+  attr_accessible :position, :requirements, :responsibilities, :user_id, :message, :accept_resume
 
   belongs_to :user
 
-  validates :position, :qualifications, :skills, presence: true
+  validates :position, :requirements, :responsibilities, presence: true
 end

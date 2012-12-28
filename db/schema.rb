@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121227021033) do
+ActiveRecord::Schema.define(:version => 20121228021502) do
 
   create_table "applicantresumes", :force => true do |t|
     t.string   "name"
@@ -27,14 +27,14 @@ ActiveRecord::Schema.define(:version => 20121227021033) do
 
   create_table "applicants", :force => true do |t|
     t.string   "position"
-    t.string   "skills"
-    t.text     "qualifications"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.integer  "user_id"
     t.text     "message"
     t.boolean  "accept_resume"
     t.string   "resume"
+    t.text     "requirements"
+    t.text     "responsibilities"
   end
 
   create_table "clientprofiles", :force => true do |t|
