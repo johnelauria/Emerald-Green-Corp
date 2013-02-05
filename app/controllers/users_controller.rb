@@ -2,9 +2,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
 
-  before_filter :signed_in_user, only: [ :index, :edit, :destroy ]
-  before_filter :correct_user, only: [ :edit, :update ]
-  before_filter :admin_user, only: [ :new, :create, :destroy ]
+  before_filter :signed_in_user, only: [ :index, :destroy ]
+  before_filter :admin_user, only: [ :new, :create, :edit, :update, :destroy ]
 
   def changeadmin
     @user = User.find(params[:id])

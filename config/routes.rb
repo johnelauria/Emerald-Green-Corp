@@ -1,4 +1,7 @@
 Emeraldgreencorp::Application.routes.draw do
+  resources :home_images
+
+
   resources :applicantresumes
 
 

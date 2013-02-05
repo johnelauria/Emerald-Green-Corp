@@ -1,6 +1,6 @@
 <h1>Welcome</h1>
 <% unless User.last.nil? %>
-	<p>Emerald Green Corporation welcomes <%= link_to User.last.name, User.last %> which started their first business operation at <%= User.last.created_at.strftime("%m-%d-%y") %> in Emerald Green Building. <%= User.last.clientprofiles.first.content unless User.last.clientprofiles.first.nil? %></p>
+	<p>Emerald Green Corporation welcomes <%= link_to User.last.name, User.last.name %> which started their first business operation at <%= User.last.created_at.strftime("%m-%d-%y") %> in Emerald Green Building. <%= User.last.clientprofiles.first.content unless User.last.clientprofiles.first.nil? %></p>
 <% end %>
 <br />
 	<p>Want to start your own business? We currently have <%= pluralize(Spaceforlease.all.count, "Space") %> available for lease in the building. Images and details are provided in the "Spaces for lease" tab on the right side of this post or by simply <a href="#spaceforlease" data-toggle="tab">clicking here</a>. </p>

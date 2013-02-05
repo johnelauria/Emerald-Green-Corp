@@ -1,0 +1,27 @@
+<h1>Listing home images</h1>
+
+<p>All images saved here will be displayed in the home page</p>
+
+<table class="table">
+  <tr>
+    <th>Image</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @home_images.each do |home_image| %>
+  <tr>
+    <td><%= image_tag(home_image.image, size: "200x200") %></td>
+    <td><%= home_image.description %></td>
+    <td><%= link_to 'Show', home_image, class: "btn btn-mini btn-info" %></td>
+    <td><%= link_to 'Edit', edit_home_image_path(home_image), class: "btn btn-mini btn-warning" %></td>
+    <td><%= link_to 'Destroy', home_image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Home image', new_home_image_path, class: "btn btn-success" %>

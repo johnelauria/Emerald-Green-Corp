@@ -4,6 +4,8 @@ class StaticpagesController < ApplicationController
     @spaceforleases = Spaceforlease.all
     @webprofiles = Webprofile.all
     @webprofile = Webprofile.new(params[:webprofile])
+
+    Emailu.delete_all
   end
 
   def aboutus

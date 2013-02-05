@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Image:</b>
+  <%= image_tag(@home_image.image) %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @home_image.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_home_image_path(@home_image) %> |
+<%= link_to 'Back', home_images_path %>

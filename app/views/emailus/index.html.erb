@@ -1,6 +1,6 @@
 <h1>Listing emailus</h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Email</th>
     <th>Message</th>
@@ -13,13 +13,8 @@
   <tr>
     <td><%= emailu.email %></td>
     <td><%= emailu.message %></td>
-    <td><%= link_to 'Show', emailu %></td>
-    <td><%= link_to 'Edit', edit_emailu_path(emailu) %></td>
-    <td><%= link_to 'Destroy', emailu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', emailu, class: "btn btn-mini btn-info" %></td>
+    <td><%= link_to 'Destroy', emailu, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Emailu', new_emailu_path %>

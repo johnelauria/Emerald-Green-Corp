@@ -8,6 +8,14 @@
 				<p>The frontal view of Emerald Green Building</p>
 			</div>
 		</div>
+		<% HomeImage.all.each do |home| %>
+			<div class="item">
+				<%= image_tag(home.image) %>
+				<div class="carousel-caption">
+					<p><%= home.description %></p>
+				</div>
+			</div>
+		<% end %>
 		<div class="item">
 			<%= image_tag("egc1.jpg") %>
 			<div class="carousel-caption">
