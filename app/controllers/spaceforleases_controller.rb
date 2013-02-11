@@ -2,7 +2,7 @@ class SpaceforleasesController < ApplicationController
   # GET /spaceforleases
   # GET /spaceforleases.json
 
-  before_filter :admin_user, only: [ :create, :new, :edit, :update ]
+  before_filter :admin_user, only: [ :create, :new, :edit, :update, :destroy ]
 
   def index
     @spaceforleases = Spaceforlease.all
@@ -17,6 +17,7 @@ class SpaceforleasesController < ApplicationController
   # GET /spaceforleases/1.json
   def show
     @spaceforlease = Spaceforlease.find(params[:id])
+    @spaceforleases = Spaceforlease.all
     @spaceforleaseimage = Spaceforleaseimage.new(params[:spaceforleaseimage])
 
     respond_to do |format|

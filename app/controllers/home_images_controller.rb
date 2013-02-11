@@ -1,6 +1,9 @@
 class HomeImagesController < ApplicationController
   # GET /home_images
   # GET /home_images.json
+
+  before_filter :signed_in_user
+  before_filter :admin_user
   def index
     @home_images = HomeImage.all
 

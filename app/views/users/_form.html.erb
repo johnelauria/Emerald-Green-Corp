@@ -15,9 +15,9 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="field"> 
-    <%= f.label t('Email') %><br />
-    <%= f.text_field :email %> <small>*will be used for logging in*</small>
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %><small>*will be used for logging in*</small>
   </div>
   <div class="field">
     <%= f.label :password %><br />
@@ -26,6 +26,14 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, value: @user.password %>
+  </div>
+    <div class="field"> 
+    <%= f.label :email %><br />
+    <%= f.text_field :email %> 
+  </div>
+  <div class="field">
+    <%= f.label :telephone_number %><br />
+    <%= f.text_field :telephone %>
   </div>
   <div class="field">
     <%= f.label :logo %>
@@ -46,6 +54,6 @@
   </div>
   <% end %>
   <div class="actions">
-    <%= f.submit "Create account", class: "btn btn-success" %>
+    <%= f.submit "Save", class: "btn btn-success" %>
   </div>
 <% end %>

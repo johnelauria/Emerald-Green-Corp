@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :admin, :email, :name, :password, :password_confirmation, :remember_token, :description, :logo, :unit, :level
+  attr_accessible :admin, :email, :name, :password, :password_confirmation, :remember_token, :description, :logo, :unit, :level, :username, :telephone
   has_secure_password
 
   has_many :images, dependent: :destroy

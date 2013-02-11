@@ -2,7 +2,7 @@ class SpaceforleaseimagesController < ApplicationController
   # GET /spaceforleaseimages
   # GET /spaceforleaseimages.json
 
-  before_filter :admin_user, only: [ :create, :new, :edit, :update ]
+  before_filter :admin_user, only: [ :create, :new, :edit, :update, :destroy ]
   
   def index
     @spaceforleaseimages = Spaceforleaseimage.all

@@ -12,7 +12,7 @@
     <td><%= User.find_by_id(image.user_id).name %></td>
     <td><%= link_to image_tag(image.image, size: "200x150"), image %></td>
     <% if signed_in? && current_user.admin? %>
-      <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
+      <td><%= link_to 'Delete', image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
     <% end %>
   </tr>
 <% end %>

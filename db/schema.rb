@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130205005356) do
+ActiveRecord::Schema.define(:version => 20130211034237) do
 
   create_table "applicantresumes", :force => true do |t|
     t.string   "name"
@@ -101,6 +101,8 @@ ActiveRecord::Schema.define(:version => 20130205005356) do
     t.string   "logo"
     t.string   "level"
     t.string   "unit"
+    t.string   "username"
+    t.string   "telephone"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

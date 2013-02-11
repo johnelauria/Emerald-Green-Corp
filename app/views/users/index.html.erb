@@ -16,7 +16,7 @@
     <td><%= user.admin ? "yes" : "no" %></td>
     <td><%= link_to 'Show', user, class: "btn btn-mini btn-info" %></td>
     <td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-mini btn-warning" %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
+    <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
     <% if current_user.admin? %>
     <td><%= link_to "Change Admin", changeadmin_user_url(user), method: :put, data: { confirm: "WARNING!: Admin users have full access to the database and information while non admin users have restrictions. Are you sure you want to continue?" }, class: "btn btn-mini btn-inverse" %></td>
     <% end %>

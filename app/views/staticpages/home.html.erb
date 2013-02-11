@@ -1,13 +1,77 @@
 <div class="row">
 <div class="span8">
+	<legend>Come and have a tour in our building!</legend>
 <div id="myCarousel" class="carousel slide">
 	<div class="carousel-inner">
 		<div class="active item">
-			<%= image_tag("Photo0109.jpg") %>
+			<%= image_tag("front.jpg") %>
 			<div class="carousel-caption">
 				<p>The frontal view of Emerald Green Building</p>
 			</div>
 		</div>
+		<div class="item">
+			<%= image_tag("entrance.jpg") %>
+			<div class="carousel-caption">
+				<p>Entrance</p>
+			</div>
+		</div>
+		<div class="item">
+			<%= image_tag("1stairway.jpg") %>
+			<div class="carousel-caption">
+				<p>Ground floor stairway</p>
+			</div>
+		</div>
+		<div class="item">
+			<%= image_tag("waterpump.jpg") %>
+			<div class="carousel-caption">
+				<p>Waterpump to ensure strong flow of water in the building</p>
+			</div>
+		</div>
+		<div class="item">
+			<%= image_tag("2hallway.JPG") %>
+			<div class="carousel-caption">
+				<p>2nd floor Hallway</p>
+			</div>
+		</div>
+		<div class="item">
+			<%= image_tag("2terrace.jpg") %>
+			<div class="carousel-caption">
+				<p>2nd floor Terrace</p>
+			</div>
+		</div>
+		<div class="item">
+			<%= image_tag("3hallway.jpg") %>
+			<div class="carousel-caption">
+				<p>3rd floor Hallway</p>
+			</div>
+		</div>
+		<div class="item">
+			<%= image_tag("hallway4.jpg") %>
+			<div class="carousel-caption">
+				<p>4th floor Hallway</p>
+			</div>
+		</div>
+		
+		<div class="item">
+			<%= image_tag("philamview.jpg") %>
+			<div class="carousel-caption">
+				<p>4th floor terrace. Philam Life Village on the left side and Starmall Las Piñas on the right side</p>
+			</div>
+		</div>
+
+		<div class="item">
+			<%= image_tag("style.jpg") %>
+			<div class="carousel-caption">
+				<p>4th floor terrace. Front of Starmall ahead. Emergency ladder exit on the right side</p>
+			</div>
+		</div>
+		<div class="item">
+			<%= image_tag("4terracerear.jpg") %>
+			<div class="carousel-caption">
+				<p>4th floor terrace's rear</p>
+			</div>
+		</div>
+		
 		<% HomeImage.all.each do |home| %>
 			<div class="item">
 				<%= image_tag(home.image) %>
@@ -16,30 +80,6 @@
 				</div>
 			</div>
 		<% end %>
-		<div class="item">
-			<%= image_tag("egc1.jpg") %>
-			<div class="carousel-caption">
-				<p>The frontal view of Emerald Green Building</p>
-			</div>
-		</div>
-		<div class="item">
-			<%= image_tag("egc2.jpg") %>
-			<div class="carousel-caption">
-				<p>Philtex Office located at 2nd floor</p>
-			</div>
-		</div>
-		<div class="item">
-			<%= image_tag("egc3.jpg") %>
-			<div class="carousel-caption">
-				<p>Hallway</p>
-			</div>
-		</div>
-		<div class="item">
-			<%= image_tag("egc4.jpg") %>
-			<div class="carousel-caption">
-				<p>Building's Terrace at 3rd floor</p>
-			</div>
-		</div>
 	</div>
 	<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 	<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
