@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211034237) do
+ActiveRecord::Schema.define(:version => 20130213024125) do
 
   create_table "applicantresumes", :force => true do |t|
     t.string   "name"
@@ -67,10 +67,10 @@ ActiveRecord::Schema.define(:version => 20130211034237) do
   end
 
   create_table "smstexts", :force => true do |t|
-    t.integer  "recipient"
     t.text     "smsmessage"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "recipient"
   end
 
   create_table "spaceforleaseimages", :force => true do |t|

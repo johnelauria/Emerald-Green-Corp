@@ -6,6 +6,7 @@ class StaticpagesController < ApplicationController
     @webprofile = Webprofile.new(params[:webprofile])
 
     Emailu.delete_all
+    Smstext.delete_all
   end
 
   def aboutus

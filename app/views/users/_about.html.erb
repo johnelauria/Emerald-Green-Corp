@@ -1,9 +1,10 @@
-<% if signed_in? && current_user.id == @user.id %>
+<% if signed_in? %>
+<% if @user.id == current_user.id || current_user.admin? %>
 <div class="accordion" id="newprofiledata">
 	<div class="accordion-group">
 		<div class="accordion-heading">
 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#newprofiledata" href="#newdata">
-				Add new information
+				Add new information to display
 			</a>
 		</div>
 		<div id="newdata" class="accordion-body collapse">
@@ -14,12 +15,17 @@
 	</div>
 </div>
 <% end %>
+<% end %>
 
 <% @user.clientprofiles.each do |info| %>
+	<% if signed_in? %>
+	<% if @user.id == current_user.id || current_user.admin? %>
+		<div class="btn-group">
+			<%= link_to "Edit", edit_clientprofile_path(info), class: "btn btn-mini btn-info" %>
+			<%= link_to "Remove", info, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-mini btn-danger" %>
+		</div>
+	<% end %>
 	<h4><%= info.title %>: </h4><br />
-	<div class="btn-group">
-		<%= link_to "Edit", edit_clientprofile_path(info), class: "btn btn-mini btn-info" %>
-		<%= link_to "Remove", info, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-mini btn-danger" %>
-	</div>
 	<p><%= info.content %></p>
+<% end %>
 <% end %>

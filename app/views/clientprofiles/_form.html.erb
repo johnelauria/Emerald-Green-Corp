@@ -20,7 +20,7 @@
     <%= f.text_area :content, rows: 7 %>
   </div>
 
-<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :user_id, value: @user.id %>
 
   <div class="actions">
     <%= f.submit "Save", class: "btn btn-success" %>

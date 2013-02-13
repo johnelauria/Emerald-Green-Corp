@@ -4,4 +4,6 @@ class Spaceforleaseimage < ActiveRecord::Base
   belongs_to :spaceforlease
 
   mount_uploader :image, AvatarUploader
+
+  validates :image, presence: true
 end

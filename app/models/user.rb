@@ -10,10 +10,13 @@ class User < ActiveRecord::Base
   before_save { self.email.downcase! }
   before_save { create_remember_token }
 
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
   validates :name, presence: true, length: { maximum: 50 }
-  validates :email, presence: true, uniqueness: { case_sensitive: false }
+  validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, :unit, :level, presence: true
+  validates :username, uniqueness: true
 
   mount_uploader :logo, AvatarUploader
 
