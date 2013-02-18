@@ -20,6 +20,7 @@
 <br />
 
 <% if signed_in? %>
+<% if @user.id == current_user.id || current_user.admin? %>
 
 <div id="ImageModal" class="modal hide fade" aria-hidden="true" tabindex="-1">
 	<div class="modal-header">
@@ -35,8 +36,9 @@
 </div>
 
 <% end %>
+<% end %>
 
 <br /><br />
-<% if @user == current_user %>
+<% if @user == current_user || current_user.admin? %>
 	<a href="#ImageModal" class="btn btn-success" data-toggle="modal">Add photo</a>
 <% end %>

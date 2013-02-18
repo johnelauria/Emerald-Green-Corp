@@ -48,7 +48,7 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to current_user, notice: 'Image was successfully created.' }
+        format.html { redirect_to :back, notice: 'Image was successfully created.' }
         format.json { render json: @image, status: :created, location: @image }
       else
         format.html { render action: "new" }
@@ -80,7 +80,7 @@ class ImagesController < ApplicationController
     @image.destroy
 
     respond_to do |format|
-      format.html { redirect_to current_user }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end

@@ -16,7 +16,7 @@ class StaticpagesController < ApplicationController
   end
 
   def offices
-    @users = User.all
+    @users = User.all.sort_by(&:name)
   end
 
   def contactus

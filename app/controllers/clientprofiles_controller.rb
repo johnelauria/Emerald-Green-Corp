@@ -47,7 +47,7 @@ class ClientprofilesController < ApplicationController
 
     respond_to do |format|
       if @clientprofile.save
-        format.html { redirect_to current_user, notice: 'Clientprofile was successfully created.' }
+        format.html { redirect_to :back, notice: 'Clientprofile was successfully created.' }
         format.json { render json: @clientprofile, status: :created, location: @clientprofile }
       else
         format.html { render action: "new" }
@@ -79,7 +79,7 @@ class ClientprofilesController < ApplicationController
     @clientprofile.destroy
 
     respond_to do |format|
-      format.html { redirect_to current_user }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end
