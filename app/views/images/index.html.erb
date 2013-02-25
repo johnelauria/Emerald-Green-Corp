@@ -1,21 +1,20 @@
-<h1>Listing images</h1>
+<h1>Gallery</h1>
 
-<table class="table">
-  <tr>
-    <th>User</th>
-    <th>Image</th>
-    <th></th>
-  </tr>
-
-<% @images.each do |image| %>
-  <tr>
-    <td><%= User.find_by_id(image.user_id).name %></td>
-    <td><%= link_to image_tag(image.image, size: "200x150"), image %></td>
-    <% if signed_in? && current_user.admin? %>
-      <td><%= link_to 'Delete', image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
-    <% end %>
-  </tr>
+<% User.all.each do |user| %>
+  <legend><%= user.name unless user.images.count == 0 %></legend>
+  <% user.images.each do |image| %>
+    <div class="row">
+      <div class="span3">
+        <%= image_tag(image.image, size: "250x250") %>
+      </div>
+      <div class="span6">
+        <%= image.description %>
+      </div>
+      <% if signed_in? && image.user_id == current_user.id %>
+      <div class="span3" align="right">
+        <%= link_to "Edit", edit_image_path(image), class: "btn btn-info" %>
+        <%= link_to "Remove", image, method: :delete, data: { confirm: "Are you sure you want to delete this image?" }, class: "btn btn-danger" %>
+      </div>
+      <% end %>
+  <% end %>
 <% end %>
-</table>
-
-<br />

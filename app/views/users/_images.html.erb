@@ -1,20 +1,16 @@
-<div class="row">
+<table class="table">
 <% @user.images.each do |picture| %>
-
-<div class="span4">
-	<%= image_tag(picture.image, size: "200x150") %>
-	<div class="btn-group btn-group-vertical">
-		<div class="btn-group">
-			<%= link_to "Enlarge", picture, class: "btn btn-mini btn-info" %>
-			<% if signed_in? %>
-				<%= link_to "Delete", picture, method: :delete, data: { confirm: "Are you sure you want to delete this image?" }, class: "btn btn-mini btn-danger" %>
-			<% end %>
-		</div>
-	</div>
-</div>
-
+<tr>
+	<td><%= image_tag(picture.image, size: "200x200") %></td>
+	<td><%= truncate(strip_tags(picture.description), length: 350) %></td>
+	<td><%= link_to "Enlarge", picture, class: "btn btn-mini btn-info", style: "float:right;" %>
+	<% if signed_in? %>
+		<%= link_to "Delete", picture, method: :delete, data: { confirm: "Are you sure you want to delete this image?" }, class: "btn btn-mini btn-danger", style: "float:right;" %>
+	<% end %>
+	</td>
+</tr>
 <% end %>
-</div>
+</table>
 
 <br />
 <br />

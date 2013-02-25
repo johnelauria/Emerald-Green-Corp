@@ -1,6 +1,8 @@
 class ApplicantresumesController < ApplicationController
   # GET /applicantresumes
   # GET /applicantresumes.json
+
+  before_filter :admin_user
   def index
     @applicantresumes = Applicantresume.all
 
@@ -44,7 +46,8 @@ class ApplicantresumesController < ApplicationController
 
     respond_to do |format|
       if @applicantresume.save
-        format.html { redirect_to @applicantresume, notice: 'Applicantresume was successfully created.' }
+        flash[:success] = "Your application form was successfully sent to #{@applicantresume.user.name}. Expect that you may receive an email or text message from your employer anytime soon."
+        format.html { redirect_to @applicantresume }
         format.json { render json: @applicantresume, status: :created, location: @applicantresume }
       else
         format.html { render action: "new" }
@@ -76,7 +79,7 @@ class ApplicantresumesController < ApplicationController
     @applicantresume.destroy
 
     respond_to do |format|
-      format.html { redirect_to applicantresumes_url }
+      format.html { redirect_to current_user }
       format.json { head :no_content }
     end
   end

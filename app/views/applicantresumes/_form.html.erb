@@ -19,6 +19,7 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  <%= f.hidden_field :applied_for, value: @applicant.position %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
@@ -32,7 +33,7 @@
     <%= f.text_field :nationality %>
   </div>
   <div class="field">
-    <%= f.label :upload_resume %><br />
+    <%= f.label "Upload your updated resume" %><br />
     <%= f.file_field :upload_resume %><br /><small>*only .doc, .docx, .pdf, .txt and .rtf files are accepted*</small>
   </div>
   <div class="field">

@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div align="center">
 	<h1><%= @applicant.user.name %></h1>
 	<% if @applicant.user.logo.present? %>
@@ -9,7 +7,7 @@
 	<% end %>
 	<% @applicant.user.clientprofiles.each do |clientprofile| %>
 		<h3><%= clientprofile.title %></h3><br />
-		<p><%= clientprofile.content %></p>
+		<p><%= sanitize(clientprofile.content) %></p>
 	<% end %>
 <br /><br />
 <h3><%= @applicant.position %></h3>
