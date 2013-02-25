@@ -39,6 +39,8 @@
 <% end %>
 
 <br /><br />
+<% if signed_in? %>
 <% if @user == current_user || current_user.admin? %>
 	<a href="#ImageModal" class="btn btn-success" data-toggle="modal">Add photo</a>
+<% end %>
 <% end %>

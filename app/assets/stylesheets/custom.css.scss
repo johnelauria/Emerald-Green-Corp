@@ -1,10 +1,5 @@
 @import "bootstrap";
 
-body {
-	background-color: #ffd;
-	text-align: justify;
-}
-
 h1 {
 	color: gray;
 }
@@ -43,4 +38,15 @@ article {
 .field_with_errors {
 	@extend .control-group;
 	@extend .error;
+}
+
+.dropdown-menu li > a:hover,
+.dropdown-menu li > a:focus,
+.dropdown-submenu:hover > a {
+  color: yellow;
+  text-decoration: none;
+  background-color: green;
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
 }
