@@ -51,7 +51,7 @@ class ImagesController < ApplicationController
         format.html { redirect_to :back, notice: 'Image was successfully created.' }
         format.json { render json: @image, status: :created, location: @image }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to :back }
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end
