@@ -4,6 +4,8 @@
   <tr>
     <th>Company</th>
     <th>Position</th>
+    <th>Date posted</th>
+    <th>Deadline</th>
     <th>Responsibilities</th>
     <th>Requirements</th>
     <th></th>
@@ -13,6 +15,13 @@
   <tr>
     <td><%= User.find_by_id(applicant.user_id).name %></td>
     <td><%= applicant.position %></td>
+    <td><%= applicant.created_at.strftime("%m-%d-%Y") %></td>
+    <td>
+      <% if applicant.deadline.nil? %>
+        <font color="red">No Deadline</font>
+      <% else %>
+        <%= applicant.deadline.strftime("%m-%d-%Y") %></td>
+      <% end %>
     <td><%= sanitize(applicant.responsibilities) %></td>
     <td><%= sanitize(applicant.requirements) %></td>
     <td><%= link_to 'Show', applicant, class: "btn btn-mini btn-success" %></td>

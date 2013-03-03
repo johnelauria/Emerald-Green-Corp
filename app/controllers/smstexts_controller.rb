@@ -5,7 +5,7 @@ class SmstextsController < ApplicationController
   require 'rubygems'
   require 'clickatell'
 
-  before_filter :admin_user
+  before_filter :admin_user, only: [:index, :update, :edit, :destroy]
 
   def index
     @smstexts = Smstext.all

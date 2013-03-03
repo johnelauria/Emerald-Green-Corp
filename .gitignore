@@ -15,4 +15,4 @@
 /tmp
 
 #Ignore public photos
-/public/uploads/*
+/public/uploads

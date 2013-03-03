@@ -1,4 +1,10 @@
 Emeraldgreencorp::Application.routes.draw do
+  resources :contacts
+
+
+  resources :products
+
+
   resources :home_images
 
 
@@ -41,7 +47,7 @@ Emeraldgreencorp::Application.routes.draw do
 
   get "offices", to: "staticpages#offices"
 
-  get "contacts", to: "staticpages#contactus"
+  get "contact_us", to: "staticpages#contactus"
 
   match "/signin", to: "sessions#new"
 

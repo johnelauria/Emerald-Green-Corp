@@ -28,6 +28,8 @@ class UsersController < ApplicationController
     @applicant = Applicant.new(params[:applicant])
     @clientprofiles = Clientprofile.all
     @clientprofile = Clientprofile.new(params[:clientprofile])
+    @product = Product.new(params[:product])
+    @contact = Contact.new(params[:contact])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -58,6 +60,12 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        unless @user.email.nil?
+          Contact.create(user_id: @user.id, contact_type: "Email", contact: @user.email)
+        end
+        unless @user.telephone.nil?
+          Contact.create(user_id: @user.id, contact_type: "Telephone", contact: @user.telephone)
+        end
         flash[:success] = "A new user account has been successfully created"
         format.html { redirect_to @user }
         format.json { render json: @user, status: :created, location: @user }

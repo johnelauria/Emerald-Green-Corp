@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130225103945) do
+ActiveRecord::Schema.define(:version => 20130302021138) do
 
   create_table "applicantresumes", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20130225103945) do
     t.string   "resume"
     t.text     "requirements"
     t.text     "responsibilities"
+    t.date     "deadline"
   end
 
   create_table "clientprofiles", :force => true do |t|
@@ -44,6 +45,15 @@ ActiveRecord::Schema.define(:version => 20130225103945) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "contact"
+    t.string   "contact_person"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "contact_type"
   end
 
   create_table "emailus", :force => true do |t|
@@ -66,6 +76,17 @@ ActiveRecord::Schema.define(:version => 20130225103945) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.text     "description"
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "type"
+    t.decimal  "price",       :default => 0.0
+    t.integer  "user_id"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.string   "image"
   end
 
   create_table "smstexts", :force => true do |t|

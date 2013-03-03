@@ -6,9 +6,12 @@ class User < ActiveRecord::Base
   has_many :applicants, dependent: :destroy
   has_many :clientprofiles, dependent: :destroy
   has_many :applicantresumes, dependent: :destroy
+  has_many :products, dependent: :destroy
+  has_many :contacts, dependent: :destroy
 
   before_save { self.email.downcase! }
   before_save { create_remember_token }
+  before_save :create_contact_details
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -19,6 +22,15 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
 
   mount_uploader :logo, AvatarUploader
+
+  def create_contact_details
+    unless self.email.nil?
+      Contact.create(user_id: self.id, contact_type: "Email", contact: self.email)
+    end
+    unless self.telephone.nil?
+      Contact.create(user_id: self.id, contact_type: "Telephone", contact: self.telephone)
+    end
+  end
 
   private
 

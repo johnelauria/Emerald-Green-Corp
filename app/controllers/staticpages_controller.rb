@@ -7,6 +7,8 @@ class StaticpagesController < ApplicationController
 
     Emailu.delete_all
     Smstext.delete_all
+
+    @applicants = Applicant.find(:all, conditions: "deadline IS NOT NULL")
   end
 
   def aboutus

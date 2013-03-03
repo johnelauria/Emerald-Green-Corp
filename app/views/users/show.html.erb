@@ -1,3 +1,4 @@
+
 <div align="center">
 	<h1><%= @user.name %></h1>
 	<% if @user.logo.present? %>
@@ -12,6 +13,7 @@
 <ul class="nav nav-pills" id="myTab">
 	<li class="active"><a href="#about" data-toggle="tab">About</a></li>
 	<li><a href="#gallery" data-toggle="tab">Gallery</a></li>
+	<li><a href="#products" data-toggle="tab">Products and Services</a></li>
 	<li><a href="#hiring" data-toggle="tab">Hiring</a></li>
 	<li><a href="#contacts" data-toggle="tab">Contacts</a></li>
 </ul>
@@ -25,12 +27,20 @@
 	<div id="gallery" class="tab-pane">
 		<%= render 'users/images' %>
 	</div>
+	<div id="products" class="tab-pane">
+		<%= render 'products' %>
+	</div>
 	<div id="hiring" class="tab-pane">
 		<%= render 'users/hiring' %>
 	</div>
 	<div id="contacts" class="tab-pane">
-		<strong>Email: </strong><%= @user.email %><br />
-		<strong>Telephone: </strong><%= @user.telephone %>
+		<%= render 'contacts/form' %>
+		<% @user.contacts.each do |contact| %>
+			<%= link_to "Edit", edit_contact_path(contact) %> | 
+			<%= link_to "Remove", contact, method: :delete, data: { confirm: "Are you sure you want to delete this contact information?" } %><br />
+			<b><%= contact.contact_type %>: </b><%= contact.contact %><br />
+			<b>Contact Person: </b><%= contact.contact_person %><br /><br />
+		<% end %>
 	</div>
 </div>
 

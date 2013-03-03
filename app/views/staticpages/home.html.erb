@@ -1,3 +1,44 @@
+<% @applicants.each do |app| %>
+	<% if app.deadline.past? %>
+	<% app.delete %>
+	<% end %>
+<% end %>
+
+<div class="row">
+		<div class="span8 scrollbar">
+			<div class="tab-content">
+				<div class="tab-pane active" id="maintab">
+					<%= render 'staticpages/mainpage' %>
+				</div>
+				<div class="tab-pane" id="aboutustab">
+					<%= render 'staticpages/aboutus' %>
+				</div>
+				<div class="tab-pane" id="officerstab">
+					<%= render 'staticpages/officers' %>
+				</div>
+				<div class="tab-pane" id="spaceforlease">
+					<%= render 'spaceforleases/index' %>
+				</div>
+				<div class="tab-pane" id="organizationalChart">
+					<legend>Functional Organizational Chart</legend>
+					<div align="center">
+						<%= image_tag("Organizational_Chart.jpg") %>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="span4">
+			<ul class="nav nav-pills nav-stacked">
+			<li class="active"><a href="#maintab" data-toggle="tab">Home</a></li>
+			<li><a href="#aboutustab" data-toggle="tab">About us</a></li>
+			<li><a href="#spaceforlease" data-toggle="tab">Spaces for lease</a></li>
+			<li><a href="#officerstab" data-toggle="tab">Officers</a></li>
+			<li><a href="#organizationalChart" data-toggle="tab">Organizational Chart</a></li>
+			</ul>
+		</div>
+</div>
+
 <div class="row">
 <div class="span8">
 	<legend>Come and have a tour in our building!</legend>
@@ -96,30 +137,3 @@
 	</div>
 </div>
 
-<div class="row">
-		<div class="span8">
-			<div class="tab-content">
-				<div class="tab-pane active" id="maintab">
-					<%= render 'staticpages/mainpage' %>
-				</div>
-				<div class="tab-pane" id="aboutustab">
-					<%= render 'staticpages/aboutus' %>
-				</div>
-				<div class="tab-pane" id="officerstab">
-					<%= render 'staticpages/officers' %>
-				</div>
-				<div class="tab-pane" id="spaceforlease">
-					<%= render 'spaceforleases/index' %>
-				</div>
-			</div>
-		</div>
-		
-		<div class="span4">
-			<ul class="nav nav-pills nav-stacked">
-			<li class="active"><a href="#maintab" data-toggle="tab">Home</a></li>
-			<li><a href="#aboutustab" data-toggle="tab">About us</a></li>
-			<li><a href="#spaceforlease" data-toggle="tab">Spaces for lease</a></li>
-			<li><a href="#officerstab" data-toggle="tab">Officers</a></li>
-			</ul>
-		</div>
-</div>

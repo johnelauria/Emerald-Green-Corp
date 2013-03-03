@@ -15,6 +15,7 @@
   <div id="applicants" class="accordion-body collapse">
     <table class="table">
       <tr>
+        <th>Date submitted</th>
         <th>Name</th>
         <th>Applied for</th>
         <th>Email</th>
@@ -26,6 +27,7 @@
       </tr>
     <% @user.applicantresumes.each do |applicant| %>
       <tr>
+        <td><%= applicant.created_at %></td>
         <td><%= link_to applicant.name, applicant %></td>
         <td>System Administrator</td>
         <td><%= applicant.email %></td>
@@ -49,12 +51,21 @@
 
 <table class="table">
   <tr>
+    <th>Date created</th>
+    <th>Deadline</th>
     <th>Position</th>
     <th>Responsibilities</th>
     <th>Requirements</th>
   </tr>
 <% @user.applicants.each do |applicant| %>
   <tr>
+    <td><%= applicant.created_at.strftime("%m-%d-%Y") %></td>
+    <td>
+      <% if applicant.deadline.nil? %>
+        <font color="red">No deadline indicated</font>
+      <% else %>
+        <%= applicant.deadline.strftime("%m-%d-%Y") %></td>
+      <% end %>
     <td><%= link_to applicant.position, applicant %></td>
     <td><%= sanitize(truncate(strip_tags(applicant.responsibilities), length: 50)) %></td>
     <td><%= sanitize(truncate(strip_tags(applicant.requirements), length: 50)) %></td>

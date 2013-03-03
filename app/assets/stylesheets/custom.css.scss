@@ -50,3 +50,9 @@ article {
   background-repeat: no-repeat;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
 }
+
+.scrollbar {
+	width: 600px;
+	height: 400px;
+	overflow: auto;
+}

@@ -13,6 +13,17 @@
 <h3><%= @applicant.position %></h3>
 </div>
 
+<% if @applicant.deadline.nil? %>
+	<p>We have been looking for someone to apply for this position since <%= @applicant.created_at.strftime("%m-%d-%Y") %>. Apply right now before someone else takes this position! First qualified applicant may start as soon as possible.</p>
+	<% else %>
+	<p>
+		We have been looking for someone to apply for this position since <%= @applicant.created_at.strftime("%m-%d-%Y") %>. Apply right now before the deadline of <%= @applicant.deadline.strftime("%m-%d-%Y") %> passes away or someone else could take the position before you do. Read the details below and if you think you are the person we are looking for, just follow the instructions of application.
+		<% if Date.today.strftime("%m").to_i == @applicant.deadline.strftime("%M").to_i %>
+		Hurry! You only have <%= pluralize(Date.today.strftime("%d").to_i - @applicant.deadline.strftime("%d").to_i, "day") %> left!
+		<% end %>
+	</p>
+<% end %>
+
 <p>
   <b>Responsibilities:</b>
   <%= sanitize(@applicant.responsibilities) %>
