@@ -46,8 +46,20 @@ GEM
       execjs
     coffee-script-source (1.4.0)
     erubis (2.7.0)
+    excon (0.19.1)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fog (1.9.0)
+      builder
+      excon (~> 0.14)
+      formatador (~> 0.2.0)
+      mime-types
+      multi_json (~> 1.0)
+      net-scp (~> 1.0.4)
+      net-ssh (>= 2.1.3)
+      nokogiri (~> 1.5.0)
+      ruby-hmac
+    formatador (0.2.4)
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -61,6 +73,10 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.3.7)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-ssh (2.6.5)
+    nokogiri (1.5.6-x86-mingw32)
     pg (0.14.1-x86-mingw32)
     polyglot (0.3.3)
     rack (1.4.1)
@@ -88,6 +104,7 @@ GEM
     rake (10.0.2)
     rdoc (3.12)
       json (~> 1.4)
+    ruby-hmac (0.4.0)
     sass (3.2.3)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -120,6 +137,7 @@ DEPENDENCIES
   carrierwave
   clickatell
   coffee-rails (~> 3.2.1)
+  fog
   jquery-rails
   pg
   rails (= 3.2.9)

@@ -2,7 +2,7 @@ class ApplicantresumesController < ApplicationController
   # GET /applicantresumes
   # GET /applicantresumes.json
 
-  before_filter :admin_user
+  before_filter :admin_user, only: [ :index, :destroy ]
   def index
     @applicantresumes = Applicantresume.all
 

@@ -1,3 +1,4 @@
+<% if signed_in? %>
 <% if current_user.id == @user.id || current_user.admin? %>
 <div class="accordion" id="product_accordion">
   <div class="accordion-group">
@@ -11,6 +12,7 @@
     </div>
   </div>
 </div>
+<% end %>
 <% end %>
 
 <table class="table">
@@ -36,9 +38,11 @@
     <td><%= product.description %></td>
     <td><%= product.type %></td>
     <td><%= sprintf("P%0.02f", product.price) %></td>
+    <% if signed_in? %>
     <% if current_user.id == @user.id || current_user.admin? %>
     <td><%= link_to 'Edit', edit_product_path(product), class: "btn btn-mini btn-info" %></td>
     <td><%= link_to 'Remove', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %></td>
+    <% end %>
     <% end %>
   </tr>
 <% end %>
