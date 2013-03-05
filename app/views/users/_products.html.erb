@@ -36,7 +36,7 @@
     <% end %>
     <td><%= link_to product.name, product %></td>
     <td><%= product.description %></td>
-    <td><%= product.type %></td>
+    <td><%= product.product_type %></td>
     <td><%= sprintf("P%0.02f", product.price) %></td>
     <% if signed_in? %>
     <% if current_user.id == @user.id || current_user.admin? %>

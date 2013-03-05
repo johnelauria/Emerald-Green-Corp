@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag(@product.image) %>
+<% if @product.image.present? %>
+	<%= image_tag(@product.image) %>
+<% else %>
+	<%= image_tag("no_image.jpg") %>
+<% end %>
 
 <p>
   <b>Name:</b>
@@ -14,7 +18,7 @@
 
 <p>
 	<b>Type: </b>
-	<%= @product.type %>
+	<%= @product.product_type %>
 </p>
 
 <p>
